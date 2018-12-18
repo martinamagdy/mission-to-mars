@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Mission to Mars</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="static/css/business-frontpage.css" rel="stylesheet">
+
+  </head>
+
+  <body style="margin-top:-5%;">
+
+    <!-- Header with Background Image -->
+    <header class="business-header" style="background: url('https://assets.wired.com/photos/w_2264/wp-content/uploads/2016/10/mars1.jpg') center center no-repeat scroll;
+">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <h1 class="display-3 text-white mt-4">Mission to Mars</h1>
+            <br>
+            <br>
+            <p><a class="btn btn-primary btn-lg" style="border-radius: 50%;background-color:rgb(139,69,19);" href="/scrape" role="button">Scrape new data!</a></p>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Page Content -->
+    <div class="container" style="box-shadow: 10px 10px 5px grey;">
+      <h3>Latest Mars News<h3>
+        <h5 class="mt-4">{{listings.news_title}}</h5>
+        <p style="font-size:12pt;">{{listings.news_p}}</p>  
+
+      <div class="row">
+        <div class="col-sm-8">
+          <h3>Featured Mars Image</h3>
+          <img class="mx-auto d-block" style="max-width: 100%; ,max-height: 100%" src={{listings.featured_image_url}}>
+        </div>
+        <div class="col-sm-4">
+          <div style="border-style: groove;"><h4 class="mt-4">Current Weather on Mars</h4>
+            <br>{{listings.mars_weather}}<br></div>
+          <h4 class="mt-4">Mars Facts</h4>
+             <table>{{listings.table | safe }}</table>
+        </div>
+      </div>
+      <br>
+      <br>
+    </div>
+    <br>
+      <!-- /.row -->
+
+    <div class="container" style="margin:0 auto; box-shadow: 10px 10px 5px grey;">
+      <h3 align="center">Mars Heispheres</h3>
+      <div class="row"style="margin-right:0%;">
+        <div class="col-sm-5 my-5" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+          <div class="card">
+            <img class="card-img-top" src={{listings.Cerberus_img}} alt="">
+            <div class="card-body">
+              <h4 class="card-title">{{listings.Cerberus_title}}</h4>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-5 my-5" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+          <div class="card">
+            <img class="card-img-top" src={{listings.Schiaparelli_img}} alt="">
+            <div class="card-body">
+              <h4 class="card-title">{{listings.Schiaparelli_title}}</h4>
+            </div>
+          </div>
+        </div>
+
+      <div class="row">
+        <div class="col-sm-5 my-5" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+          <div class="card">
+            <img class="card-img-top" src={{listings.Syrtis_img}} alt="">
+            <div class="card-body">
+              <h4 class="card-title">{{listings.Syrtis_title}}</h4>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-5 my-5" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+          <div class="card">
+            <img class="card-img-top" src={{listings.valles_img}} alt="">
+            <div class="card-body">
+              <h4 class="card-title">{{listings.valles_title}}</h4>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+      <!-- /.row -->
+
+    </div>
+    <!-- /.container -->
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  </body>
+
+</html>
