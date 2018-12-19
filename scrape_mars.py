@@ -13,6 +13,7 @@ def scrape():
     browser = init_browser()
     listings = {}
 
+    #get latest news title and paragraph 
     url = "https://mars.nasa.gov/news/"
     browser.visit(url)
     html = browser.html
@@ -20,18 +21,21 @@ def scrape():
     listings["news_title"] = soup.find('div', class_='content_title').get_text()
     listings["news_p"] = soup.find('div', class_='article_teaser_body').get_text()
 
+    #get mars featured image
     url2 = 'https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars'
     browser.visit(url2)
     html = browser.html
     soup = bs(html, 'html.parser')
     listings["featured_image_url"] = "https://www.jpl.nasa.gov"+str(soup.find('article',class_='carousel_item')['style'].split('\'')[1])
 
+    #get mars weather
     url3="https://twitter.com/marswxreport?lang=en"
     browser.visit(url3)
     html = browser.html
     soup = bs(html, 'html.parser')
     listings["mars_weather"] = soup.find('p',class_="TweetTextSize TweetTextSize--normal js-tweet-text tweet-text").get_text()
-
+ 
+    #create mars table
     url4="https://space-facts.com/mars/"
     tables = pd.read_html(url4)
     df = tables[0]
@@ -42,6 +46,8 @@ def scrape():
     # Add the Mars facts table to the dictionary
     listings["table"]=df
    
+    #get mars hemispheres
+    
     url5="https://astrogeology.usgs.gov/search/map/Mars/Viking/cerberus_enhanced"
     response = requests.get(url5)
     soup = bs(response.text, 'lxml') 
